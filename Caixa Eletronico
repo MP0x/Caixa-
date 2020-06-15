@@ -1,27 +1,22 @@
 #Caixa Eletronico
-resto50 = 0
-resto20 = 0
-resto10 = 0
-resto1 = 0
-ValorSaque = int(input('Digite o valor a ser sacado: '))
-
 while True:
+    valorSaque = int(input('Digite o valor a ser sacado: '))
+    notas50 = int(valorSaque / 50)
+    resto = valorSaque % 50
 
-    if ValorSaque >= 50:
-        notas50 = int(ValorSaque / 50)
-        resto50 = int(ValorSaque - (notas50 * 50))
-        print (notas50)
-    if resto50 >= 20:
-        notas20 = int(resto50 / 20)
-        resto20 = int(resto50 - (notas20 * 20))
-        print(notas20)
-    if resto20 >= 10:
-        notas10 = int(resto20 / 10)
-        resto10 = int(resto20 - (notas10 * 10))
-        print(notas10)
-    if resto20 < 20:
-        notas1 = int(resto20 / 10)
-        resto1 = int(resto20 - (notas1 * 10))
-        print(notas1)
+    notas20 = int(resto / 20)
+    resto1 = resto % 20
+
+    notas10 = int(resto1 / 10)
+    resto2 = resto1 % 10
+
+    notas1 = int(resto2 / 1)
+    resto1 = resto2 % 1
+
+    print(f'A quantidade de notas de R$50: {notas50}\n A quantidade de notas de R$20: {notas20} \n A quantidade de notas de R$10: {notas10} \n A quantidade de notas de R$1: {notas1}\n')
+    novo = input('Voce deseja sacar outro valor? [S/N] ' or 'N').title().strip().upper()
+    if novo == 'S':
+        continue
+    else:
+        print('Obrigado por usar nossos serviços!'.title())
         break
-print('Você receberá notas de R$50')
